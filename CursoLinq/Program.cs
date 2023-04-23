@@ -1,15 +1,22 @@
 ﻿//Generar un arreglo de numero con Range
-int[] numeros = Enumerable.Range(1,5).ToArray();
+int[] numeros = Enumerable.Range(1,20).ToArray();
 
 //Sintaxis 1: Sinatxis de Métodos o lamda
-var numeroPares = numeros.Where(x => {
-    Console.WriteLine($"Evaluando si {x} es par");
-    return x % 2 == 0;
-});
+//este el es uso de un solo filtro
+var numeroImpares = numeros.Where(x => x % 2 == 1);
 
-//se ejecuta el whre cuando se evalua en el foreach 
-foreach (var numeroPar in numeroPares)
+//se ejecuta el whre cuando se evalua en el foreach  
+//Console.WriteLine("Lista de numero impares");
+//foreach (var numero in numeroImpares)
+//{
+//    Console.WriteLine(numero);
+//}
+
+//uso de dos filtros en la consulta de where
+var numeroImparesmayoresQue10 = numeros.Where((x) => x % 2 == 1 && x > 10).ToList(); ;
+
+Console.WriteLine("Estos son los numeros impares mayor a 10");
+foreach (var numeroImpar in numeroImparesmayoresQue10)
 {
-
-    Console.WriteLine($"Sí, {numeroPar} es par");
+    Console.WriteLine(numeroImpar);
 }
