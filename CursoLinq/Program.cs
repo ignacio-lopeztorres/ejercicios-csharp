@@ -1,28 +1,16 @@
-﻿//Generar un arreglo de numero con Range
-int[] numeros = Enumerable.Range(1,20).ToArray();
+﻿using CursoLinq;
 
-//Sintaxis 1: Sinatxis de Métodos o lamda
-//este el es uso de un solo filtro
-var numeroImpares = numeros.Where(x => x % 2 == 1);
+var personas = new List<Persona>() {
+    new Persona { Nombre = "Eduardo", Edad = 30, FechaIngresoALaEmpresa = new DateTime(2021, 1, 2), Soltero = true },
+    new Persona { Nombre = "Nidia", Edad = 19, FechaIngresoALaEmpresa = new DateTime(2015, 11, 22), Soltero = true },
+    new Persona { Nombre = "Alejandro", Edad = 45, FechaIngresoALaEmpresa = new DateTime(2020, 4, 12), Soltero = false },
+    new Persona { Nombre = "Valentina", Edad = 24, FechaIngresoALaEmpresa = new DateTime(2021, 7, 8), Soltero = false },
+    new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
+};
 
-//se ejecuta el whre cuando se evalua en el foreach  
-//Console.WriteLine("Lista de numero impares");
-//foreach (var numero in numeroImpares)
-//{
-//    Console.WriteLine(numero);
-//}
+var personasDe25AñosOMenos = personas.Where(p => p.Edad <= 25).ToList();
 
-//uso de dos filtros en la consulta de where
-var numeroImparesmayoresQue10 = numeros.Where((x) => x % 2 == 1 && x > 10).ToList(); ;
-
-//consultas de queries
-var numerosImparesMayoresQue10 = from n in numeros
-                                 where n % 2 == 1 && n > 10
-                                 select n;
-
-
-Console.WriteLine("Estos son los numeros impares mayor a 10");
-foreach (var numeroImpar in numerosImparesMayoresQue10)
+foreach (var persona in personasDe25AñosOMenos)
 {
-    Console.WriteLine(numeroImpar);
+    Console.WriteLine($"{persona.Nombre}, tiene {persona.Edad} años");
 }
