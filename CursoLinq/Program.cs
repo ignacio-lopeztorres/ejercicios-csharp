@@ -1,19 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-//Generar un arreglo de numero con Range
-int[] numeros = Enumerable.Range(1,10).ToArray();
+﻿//Generar un arreglo de numero con Range
+int[] numeros = Enumerable.Range(1,5).ToArray();
 
 //Sintaxis 1: Sinatxis de Métodos o lamda
-var numeroPares = numeros.Where(x => x % 2 == 0).ToList();
+var numeroPares = numeros.Where(x => {
+    Console.WriteLine($"Evaluando si {x} es par");
+    return x % 2 == 0;
+});
 
-//Sintaxis 2: Sintaxis de Queries
-var numerosParesQueries  = (from n in numeros
-                          where n % 2 == 0
-                          select n).ToList();
-
+//se ejecuta el whre cuando se evalua en el foreach 
 foreach (var numeroPar in numeroPares)
 {
 
-    Console.WriteLine(numeroPar);
+    Console.WriteLine($"Sí, {numeroPar} es par");
 }
