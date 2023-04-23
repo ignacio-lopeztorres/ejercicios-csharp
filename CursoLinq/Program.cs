@@ -1,12 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-int[] numeros = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+//Generar un arreglo de numero con Range
+int[] numeros = Enumerable.Range(1,10).ToArray();
 
 //Sintaxis 1: Sinatxis de Métodos o lamda
 var numeroPares = numeros.Where(x => x % 2 == 0).ToList();
 
 //Sintaxis 2: Sintaxis de Queries
-var   = (from n in numeros
+var numerosParesQueries  = (from n in numeros
                           where n % 2 == 0
                           select n).ToList();
 
