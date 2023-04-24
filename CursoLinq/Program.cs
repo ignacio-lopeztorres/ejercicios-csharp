@@ -8,9 +8,23 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
-var personasDe25AñosOMenos = personas.Where(p => p.Edad <= 25).ToList();
+//var personasDe25AñosOMenos = personas.Where(p => p.Edad <= 25).ToList();
 
-foreach (var persona in personasDe25AñosOMenos)
+//foreach (var persona in personasDe25AñosOMenos)
+//{
+//    Console.WriteLine($"{persona.Nombre}, tiene {persona.Edad} años");
+//}
+
+//var solteros = personas.Where(s => s.Soltero).ToList();
+                                 
+//foreach (var persona in solteros)
+//{
+    //Console.WriteLine($"{persona.Nombre} es soltero/a");
+//}
+
+var personasConMenosDeTresMesesEnLaEmpresa = personas.Where(personas => personas.FechaIngresoALaEmpresa >= DateTime.Now.AddMonths(-3)).ToList();
+
+foreach (var persona in personasConMenosDeTresMesesEnLaEmpresa)
 {
-    Console.WriteLine($"{persona.Nombre}, tiene {persona.Edad} años");
+    Console.WriteLine($"{persona.Nombre} con menos de tres meses en la empresa.");
 }
