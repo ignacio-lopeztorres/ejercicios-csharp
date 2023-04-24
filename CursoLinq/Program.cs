@@ -9,12 +9,23 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
-//uso de ElementAt y ElementAtOrDefault()
-var terceraPersona = personas.ElementAt(2); //obtiene el elemnto en la tercera posicion de la lista
-var sextaPersona = personas.ElementAtOrDefault(5); //obtiene un null ya que la lista solo tiene cinco elementos
+var perosnasMayorQue60 = personas.Single(p => p.Edad > 60);
 
-//uso de queries
-var sextaPersona_2 = (from p in personas
-                       select p).ElementAtOrDefault(5);
+try {
+    //Da error cuando no se tiene elementos en el arreglo
+    var PersonasMayorA100 = personas.Single(p => p.Edad > 100 );
+} catch (Exception ex)
+{
+    Console.WriteLine("Hubo un error, arreglo vacio");
+}
+
+try
+{
+    var personasMayorA = personas.Single(p => p.Edad > 5);
+}
+catch {
+    Console.WriteLine("Hubo otro error, arreglo con mas de un elemento");
+}
+
 
 var a = 1;
