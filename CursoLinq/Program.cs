@@ -13,6 +13,8 @@ var personas = new List<Persona>() {
 var terceraPersona = personas.ElementAt(2); //obtiene el elemnto en la tercera posicion de la lista
 var sextaPersona = personas.ElementAtOrDefault(5); //obtiene un null ya que la lista solo tiene cinco elementos
 
-
+//uso de queries
+var sextaPersona_2 = (from p in personas
+                       select p).ElementAtOrDefault(5);
 
 var a = 1;
