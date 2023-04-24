@@ -14,4 +14,9 @@ var ultimaPerosna = personas.Last();
 var ultimaPErsonañ_2 = personas.LastOrDefault();
 var ultimaPeronaSoltera = personas.Last(p => p.Soltero);
 
+//consultas con queries
+var ultimaPersonaSoltero = (from p in personas
+                    where p.Soltero
+                    select p).Last();
+
 var a = 1;
