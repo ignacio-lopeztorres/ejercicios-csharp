@@ -1,4 +1,5 @@
 ﻿using CursoLinq;
+using System.Net.Sockets;
 
 var personas = new List<Persona>() {
     new Persona { Nombre = "Eduardo", Edad = 30, FechaIngresoALaEmpresa = new DateTime(2021, 1, 2), Soltero = true },
@@ -8,15 +9,10 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
+//uso de ElementAt y ElementAtOrDefault()
+var terceraPersona = personas.ElementAt(2); //obtiene el elemnto en la tercera posicion de la lista
+var sextaPersona = personas.ElementAtOrDefault(5); //obtiene un null ya que la lista solo tiene cinco elementos
 
-//uso de last() y lastOrFefault()
-var ultimaPerosna = personas.Last();
-var ultimaPErsonañ_2 = personas.LastOrDefault();
-var ultimaPeronaSoltera = personas.Last(p => p.Soltero);
 
-//consultas con queries
-var ultimaPersonaSoltero = (from p in personas
-                    where p.Soltero
-                    select p).Last();
 
 var a = 1;
