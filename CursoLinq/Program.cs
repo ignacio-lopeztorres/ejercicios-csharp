@@ -9,11 +9,20 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
-var perosnasMayorQue60 = personas.Single(p => p.Edad > 60);
+var personaMayorQue60 = personas.Single(p => p.Edad > 60);
+
+//sinatxis de queries
+var personaMayorQue60_2 = (from p in personas
+                         where p.Edad > 60
+                         select p).Single();
 
 try {
     //Da error cuando no se tiene elementos en el arreglo
     var PersonasMayorA100 = personas.Single(p => p.Edad > 100 );
+    //consultas con queries
+    var personaMayorQue100 = (from p in personas
+                              where p.Edad > 100
+                              select p).Single();
 } catch (Exception ex)
 {
     Console.WriteLine("Hubo un error, arreglo vacio");
@@ -21,7 +30,11 @@ try {
 
 try
 {
-    var personasMayorA = personas.Single(p => p.Edad > 5);
+    var personasMayorA5 = personas.Single(p => p.Edad > 5);
+    //consulta con queries
+    var personaMayorA5 = (from p in personas
+                          where p.Edad > 5
+                          select p).Single();
 }
 catch {
     Console.WriteLine("Hubo otro error, arreglo con mas de un elemento");
