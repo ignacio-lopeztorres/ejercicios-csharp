@@ -24,7 +24,12 @@ var personas = new List<Persona>() {
 
 var personasConMenosDeTresMesesEnLaEmpresa = personas.Where(personas => personas.FechaIngresoALaEmpresa >= DateTime.Now.AddMonths(-3)).ToList();
 
-foreach (var persona in personasConMenosDeTresMesesEnLaEmpresa)
+//consuñtas con queries
+var personasConMenosDeTresMesesEnLaEmpresa_2 = from p in personas
+                                               where p.FechaIngresoALaEmpresa >= DateTime.Now.AddMonths(-3)
+                                               select p;
+
+foreach (var persona in personasConMenosDeTresMesesEnLaEmpresa_2)
 {
     Console.WriteLine($"{persona.Nombre} con menos de tres meses en la empresa.");
 }
