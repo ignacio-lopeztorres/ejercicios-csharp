@@ -25,5 +25,7 @@ try {
 //devuelve un valor por defecto
 var primerPais_2 =  paises.FirstOrDefault();
 
+var numeros =  new List<int>();
+var primerNumero = numeros.FirstOrDefault(); //tendra el valor de cero porque el primer numero por defecto de un entero es 0
 
 var a = 1;
