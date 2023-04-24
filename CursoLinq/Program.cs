@@ -13,6 +13,17 @@ var primeraPErsona = personas.First();
 // obtiene el primer elemento por defecto de una collecion
 var primeraPersona_2 = personas.FirstOrDefault();
 
+var paises = new List<String>();
+
+try {
+    // devuelve un valor porque la lista no tiene elementos
+    var primerPais = paises.First();
+} catch (Exception) {
+    Console.WriteLine("Ha ocurrido un error");
+}
+
+//devuelve un valor por defecto
+var primerPais_2 =  paises.FirstOrDefault();
 
 
 var a = 1;
