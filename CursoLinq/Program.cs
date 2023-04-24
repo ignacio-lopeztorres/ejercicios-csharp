@@ -10,5 +10,9 @@ var personas = new List<Persona>() {
 
 //Obtiene el primer elemento de la coleccion
 var primeraPErsona = personas.First();
+// obtiene el primer elemento por defecto de una collecion
+var primeraPersona_2 = personas.FirstOrDefault();
+
+
 
 var a = 1;
