@@ -10,8 +10,8 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
-//ordena de manera ascendente
-var personasOrdenadasPorEdad = personas.OrderBy(p => p.Edad);
+//ordena de manera descendente
+var personasOrdenadasPorEdad = personas.OrderByDescending(p => p.Edad);
 foreach (var persona in personasOrdenadasPorEdad)
 {
     Console.WriteLine($"{persona.Nombre} tiene {persona.Edad} años de edad");
