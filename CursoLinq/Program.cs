@@ -12,6 +12,34 @@ var personas = new List<Persona>() {
 
 var telefonos  = personas.SelectMany(p => p.Telefono).ToList();
 
-var telefonosSelect = personas.Select(p => p.Telefono).ToList();
+//regresa una colecion de coleciones el cual mo se utiliza muy amenudo, porque puede contener elementos vacios.
+//var telefonosSelect = personas.Select(p => p.Telefono).ToList();
+
+//Ejemplo 2: Entendiendo SelectMany  con dos coleciones diferentes
+
+int[] numeros = { 1, 2, 3 };
+
+//la funcion indica que se combine las dos colecciones de personas y numero creando un objeto anonimo
+var PersonasYNumeros = personas.SelectMany(p => numeros, (persona, numero) => new {
+    Persona = persona,
+    Numero = numero
+});
+
+//foreach (var item in PersonasYNumeros)
+//{
+//    Console.WriteLine($"{item.Persona.Nombre} - {item.Numero}");
+//}
+
+//Ejemplo 3: Uso de  SelectMany para combinar Personas y telefonos
+var PersonasYTelefonos = personas.SelectMany(p => p.Telefono, (persona, telefono) => new {
+    Persona = persona,
+    Telefono = telefono
+});
+
+foreach (var item in PersonasYTelefonos)
+{
+    Console.WriteLine($"{item.Persona.Nombre} - {item.Telefono}");
+}
+
 
 var a = 1;
