@@ -41,5 +41,18 @@ foreach (var item in PersonasYTelefonos)
     Console.WriteLine($"{item.Persona.Nombre} - {item.Telefono}");
 }
 
+//Uso de SelectMany con la sintaxis de queries
+var telefonos_2 = from p in personas
+                  from telefono in p.Telefono
+                  select telefono;
+
+var personasYNumeros_2 = from p in personas
+                         from n in numeros
+                         select new
+                         {
+                             Persona = p,
+                             Numero = n
+                         };
+
 
 var a = 1;
