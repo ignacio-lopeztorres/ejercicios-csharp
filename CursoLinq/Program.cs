@@ -19,6 +19,12 @@ var nombres = personas.Select(p => p.Nombre).ToList();
 var nombresYEdades = personas.Select(p => new { Nombre = p.Nombre, Edad = p.Edad});
 
 //uso de select para una clase dto
-var nombresYEdadesDTO = personas.Select(p => new PersonaDTO { Name = p.Nombre, Age = p.Edad }).ToList(); ;
+var nombresYEdadesDTO = personas.Select(p => new PersonaDTO { Name = p.Nombre, Age = p.Edad }).ToList();
+
+//crea un listado de numeros del 1 al 5
+var numeros = Enumerable.Range(1, 5).ToList();
+
+//realiza un mapeo y una transformacion al listado de numeros
+var duplosDeNumero = numeros.Select(n => 2 * n).ToList();
 
 var a = 1;
