@@ -11,15 +11,13 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
-//ordena de manera ascendente por edad y por nombre
-var personasOrdenadasPorEdad = personas.OrderBy(p => p.Edad).ThenBy(x =>x.Nombre);
-foreach (var persona in personasOrdenadasPorEdad)
-{
-    Console.WriteLine($"{persona.Nombre} tiene {persona.Edad} años de edad");
-}
+//genera los numero del uno al 20 y los revierte con reverse
+var numero = Enumerable.Range(1, 20).Reverse();
 
-//uso de la xintaxis de queries
-var personasOrdenadasPorNombreYEdad = from p in personas
-                                      orderby p.Edad, p.Nombre descending
-                                      select p;   
+//el metodo reverse no crea una lista de  sino que edita la collecion original
+//personas.Reverse();
 
+//crea una lista de personas invertidas usando el metodo AsEnumerable()
+var PersonasInvertidas = personas.AsEnumerable().Reverse().ToList();
+
+var a = 1;
