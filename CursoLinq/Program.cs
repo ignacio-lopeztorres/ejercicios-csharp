@@ -7,13 +7,10 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Valentina", Edad = 22, Soltero = false}
 };
 
-//los cuantificadores permiten hacer preguntas acerca de que si cumplen ciertos parametros o valores en una coleccion
-//por ejemplo si son mayores de edad usando el cuantificador All()
+//con un Cuantificador Any permite verificar al menos un elemento con una caracteristica indicada
+//ejemplo para buscasr un   menor de edad en la lista
+var existeMenosDeEdad = personas.Any(p => p.Edad < 18);
 
-//verifica que todas las personas sean mayores de edad, retornando un booleano
-var SonTodasLasPersonasMayoresDeEdad = personas.All(p => p.Edad >= 18);
-
-//verifica que otdas las perosnas son solteras
-var SontTodasLasPersonsSolteras = personas.All(p => p.Soltero);
+var ExisteMayorA20 = personas.Any(p => p.Edad > 20);
 
 var a = 1;
