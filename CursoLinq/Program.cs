@@ -14,6 +14,10 @@ var personas = new List<Persona>() {
 //genera los numero del uno al 20 y los revierte con reverse
 var numero = Enumerable.Range(1, 20).Reverse();
 
+//uso de la sintaxis de queries
+var numeros_2 = from n in Enumerable.Range(1, 20).Reverse()
+                select n;
+
 //el metodo reverse no crea una lista de  sino que edita la collecion original
 //personas.Reverse();
 
