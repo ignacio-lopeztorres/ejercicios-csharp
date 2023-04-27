@@ -1,6 +1,7 @@
 ﻿using CursoLinq;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 var personas = new List<Persona>() {
     new Persona { Nombre = "Eduardo", Edad = 30, FechaIngresoALaEmpresa = new DateTime(2021, 1, 2), Soltero = true },
@@ -11,8 +12,25 @@ var personas = new List<Persona>() {
 };
 
 //ordena de manera descendente
-var personasOrdenadasPorEdad = personas.OrderByDescending(p => p.Edad);
-foreach (var persona in personasOrdenadasPorEdad)
+//var personasOrdenadasPorEdad = personas.OrderByDescending(p => p.Edad);
+//foreach (var persona in personasOrdenadasPorEdad)
+//{
+//    Console.WriteLine($"{persona.Nombre} tiene {persona.Edad} años de edad");
+//}
+
+int[] numeros = { 1, 5, 12, 2, 3, 111, 6};
+foreach (var numero in numeros.OrderBy(x => x))
 {
-    Console.WriteLine($"{persona.Nombre} tiene {persona.Edad} años de edad");
+    Console.WriteLine(numero);
 }
+
+//sintaxis de queries
+var numeros_2 = from n in numeros
+                orderby n
+                select n;
+
+var personas_2 = from p in personas
+                 orderby p.Edad descending
+                 select p;
+
+var a = 1;
