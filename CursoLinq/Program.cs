@@ -1,15 +1,19 @@
 ﻿using CursoLinq;
 
-var numeros = Enumerable.Range(1, 5);
+var personas = new List<Persona>() {
+    new Persona { Nombre = "Eduardo",  Edad = 19, Soltero = true },
+    new Persona { Nombre = "Nidia", Edad = 25, Soltero = true },
+    new Persona { Nombre = "Alejandro", Edad = 30, Soltero = true },
+    new Persona { Nombre = "Valentina", Edad = 22, Soltero = false}
+};
 
-//con la funcion de agregado podemos realizar operaciones entre cada uno de los elementos
-//de la coleccion mientras calculamos el valor final
+//los cuantificadores permiten hacer preguntas acerca de que si cumplen ciertos parametros o valores en una coleccion
+//por ejemplo si son mayores de edad usando el cuantificador All()
 
-var resultado = numeros.Aggregate((a, b) => a * b); //realiza la operacion de 1x2x3x4x5 dando como resultado 120
+//verifica que todas las personas sean mayores de edad, retornando un booleano
+var SonTodasLasPersonasMayoresDeEdad = personas.All(p => p.Edad >= 18);
 
-Console.WriteLine($"El resultado es: {resultado}");
+//verifica que otdas las perosnas son solteras
+var SontTodasLasPersonsSolteras = personas.All(p => p.Soltero);
 
-//realiza la operacion con un valor semilla
-var resultadoConValorSemilla = numeros.Aggregate(10, (a, b) => a * b);
-
-Console.WriteLine($"El resulado con el valor semilla es: {resultadoConValorSemilla}");
+var a = 1;
