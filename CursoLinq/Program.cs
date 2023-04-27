@@ -29,11 +29,25 @@ var duplosDeNumero = numeros.Select(n => 2 * n).ToList();
 
 //seleccionando personas con su respectivo indice
 
-var personasConIndice = personas.Select((p, Index) => new { Persona = p, Indice = Index + 1 });
+var personasConIndice = personas.Select((p, Index) => new { Persona = p, Indice = Index + 1 });   
 
 foreach (var item in personasConIndice)
 {
     Console.WriteLine($"{item.Indice}) {item.Persona.Nombre}");
 }
+
+
+//uso de select con queries
+var nombres_2 = (from p in personas
+                 select p.Nombre).ToList();
+
+var nombreYEdades_2 = from p in personas
+                      select new { Nombre = p.Nombre, Edad = p.Edad };
+
+var duplosDeNumero_2 = from n in numeros
+                       select 2 * n;
+
+// no podemos hacer el ejemplo del indice con el sintaxis de queries
+
 
 var a = 1;
