@@ -4,55 +4,29 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
 var personas = new List<Persona>() {
-    new Persona { Nombre = "Eduardo", Telefono = { "123-456", "789-852"} },
-    new Persona { Nombre = "Nidia", Telefono = { "998-478", "568-222" } },
-    new Persona { Nombre = "Alejandro", Telefono = { "712-132"} },
-    new Persona { Nombre = "Valentina"}
+    new Persona { Nombre = "Eduardo", Soltero = true },
+    new Persona { Nombre = "Nidia", Soltero = true },
+    new Persona { Nombre = "Alejandro", Soltero = true },
+    new Persona { Nombre = "Valentina", Soltero = false}
 };
 
-var telefonos  = personas.SelectMany(p => p.Telefono).ToList();
 
-//regresa una colecion de coleciones el cual mo se utiliza muy amenudo, porque puede contener elementos vacios.
-//var telefonosSelect = personas.Select(p => p.Telefono).ToList();
+//uso de count para contar elementos de una lista
+Console.WriteLine($"La cantidad de personas es: {personas.Count()}");
 
-//Ejemplo 2: Entendiendo SelectMany  con dos coleciones diferentes
+//uso de cou t con predicados para campos especificos
+Console.WriteLine($"La cantidad de personas soltera es: {personas.Count(p => p.Soltero)}");
 
-int[] numeros = { 1, 2, 3 };
+//Valor Maximo de int
+Console.WriteLine($"Int max = {int.MaxValue.ToString("N")}");
 
-//la funcion indica que se combine las dos colecciones de personas y numero creando un objeto anonimo
-var PersonasYNumeros = personas.SelectMany(p => numeros, (persona, numero) => new {
-    Persona = persona,
-    Numero = numero
-});
+//Cuando el valor maximo de datos sea mayor a 3 millones se recomienda usar
+//LongCount();
+//personas.LongCount();
 
-//foreach (var item in PersonasYNumeros)
-//{
-//    Console.WriteLine($"{item.Persona.Nombre} - {item.Numero}");
-//}
+//para el uso de queries con count no vale mcho la pena porque se usa mas codico que con el uso de metodos
+//uso de la sintaxis de queries
 
-//Ejemplo 3: Uso de  SelectMany para combinar Personas y telefonos
-var PersonasYTelefonos = personas.SelectMany(p => p.Telefono, (persona, telefono) => new {
-    Persona = persona,
-    Telefono = telefono
-});
-
-foreach (var item in PersonasYTelefonos)
-{
-    Console.WriteLine($"{item.Persona.Nombre} - {item.Telefono}");
-}
-
-//Uso de SelectMany con la sintaxis de queries
-var telefonos_2 = from p in personas
-                  from telefono in p.Telefono
-                  select telefono;
-
-var personasYNumeros_2 = from p in personas
-                         from n in numeros
-                         select new
-                         {
-                             Persona = p,
-                             Numero = n
-                         };
-
-
-var a = 1;
+var personasSolteras = (from p in personas
+                        where p.Soltero
+                        select p).Count();
