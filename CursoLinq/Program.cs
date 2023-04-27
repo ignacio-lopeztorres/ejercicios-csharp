@@ -24,7 +24,16 @@ var nombresYEdadesDTO = personas.Select(p => new PersonaDTO { Name = p.Nombre, A
 //crea un listado de numeros del 1 al 5
 var numeros = Enumerable.Range(1, 5).ToList();
 
-//realiza un mapeo y una transformacion al listado de numeros
+//realiza un mapeo y una transformacion al listado de numeros 
 var duplosDeNumero = numeros.Select(n => 2 * n).ToList();
+
+//seleccionando personas con su respectivo indice
+
+var personasConIndice = personas.Select((p, Index) => new { Persona = p, Indice = Index + 1 });
+
+foreach (var item in personasConIndice)
+{
+    Console.WriteLine($"{item.Indice}) {item.Persona.Nombre}");
+}
 
 var a = 1;
