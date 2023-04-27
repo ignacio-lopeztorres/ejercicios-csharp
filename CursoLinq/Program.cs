@@ -11,17 +11,14 @@ var personas = new List<Persona>() {
     new Persona { Nombre = "Roberto", Edad = 61, FechaIngresoALaEmpresa = DateTime.Now.AddDays(-1), Soltero = false },
 };
 
-//genera los numero del uno al 20 y los revierte con reverse
-var numero = Enumerable.Range(1, 20).Reverse();
+//uso de select
+var nombres = personas.Select(p => p.Nombre).ToList();
 
-//uso de la sintaxis de queries
-var numeros_2 = from n in Enumerable.Range(1, 20).Reverse()
-                select n;
+//uso de select para seleccionar dos propiedades agregando a un objeto anonimo
 
-//el metodo reverse no crea una lista de  sino que edita la collecion original
-//personas.Reverse();
+var nombresYEdades = personas.Select(p => new { Nombre = p.Nombre, Edad = p.Edad});
 
-//crea una lista de personas invertidas usando el metodo AsEnumerable()
-var PersonasInvertidas = personas.AsEnumerable().Reverse().ToList();
+//uso de select para una clase dto
+var nombresYEdadesDTO = personas.Select(p => new PersonaDTO { Name = p.Nombre, Age = p.Edad }).ToList(); ;
 
 var a = 1;
