@@ -18,6 +18,12 @@ Console.WriteLine($"La suma de los numeros es: {numeros.Sum()}");
 //suma las edades de las personas
 Console.WriteLine($"La Suma de las Edades es: {personas.Sum(p => p.Edad)}");
 
+//min y max solo deveuelven un valor pero no indican a que valor pertenece en la coleccion
 Console.WriteLine($"La edad maxima de las personas es: {personas.Max(x => x.Edad)}");
 Console.WriteLine($"La edad minima de las personas es: {personas.Min(x => x.Edad)}");
 
+//con MinBy y MaxBy se obtine los elemento de la colecion a la que pertenece
+var personaDeMayorEdad = personas.MaxBy(p => p.Edad);
+var personaDeMenorEdad = personas.MinBy(p => p.Edad);
+
+var a = 1; //para usodel breackpoint
