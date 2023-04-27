@@ -18,3 +18,8 @@ foreach (var persona in personasOrdenadasPorEdad)
     Console.WriteLine($"{persona.Nombre} tiene {persona.Edad} años de edad");
 }
 
+//uso de la xintaxis de queries
+var personasOrdenadasPorNombreYEdad = from p in personas
+                                      orderby p.Edad, p.Nombre descending
+                                      select p;   
+
