@@ -22,7 +22,16 @@ var empresasYEmpleados = empresas.GroupJoin(personas, e => e.Id, p => p.EmpresaI
     Empresa = empresa
 });
 
-foreach (var item in empresasYEmpleados) { 
+//Sintaxis de queries
+var empresasYEmpleados_2 = from empresa in empresas
+                          join persona in personas
+                          on empresa.Id equals persona.EmpresaId into personas2
+                          select new {
+                              Empresa = empresa,
+                              Persona = personas2
+                          };
+
+foreach (var item in empresasYEmpleados_2) { 
     Console.WriteLine($"Las Siguientes personas trabajan en {item.Empresa.Name}");
     foreach (var persona in item.Persona)
     {
