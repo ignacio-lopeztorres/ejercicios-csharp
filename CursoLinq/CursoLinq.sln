@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoLinq", "CursoLinq.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Join", "..\Join\Join.csproj", "{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupJoin-LeftJoin", "..\GroupJoin-LeftJoin\GroupJoin-LeftJoin.csproj", "{E95F7C71-061D-49BF-9EA8-3B05866DEDCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95F7C71-061D-49BF-9EA8-3B05866DEDCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95F7C71-061D-49BF-9EA8-3B05866DEDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95F7C71-061D-49BF-9EA8-3B05866DEDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95F7C71-061D-49BF-9EA8-3B05866DEDCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
