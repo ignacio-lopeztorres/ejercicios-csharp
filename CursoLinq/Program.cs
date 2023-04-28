@@ -13,7 +13,12 @@ var personas = new List<Persona>() {
 //agrupar personas solteras y no solteras
 var agrupaPorSolteria = personas.GroupBy(p => p.Soltero);
 
-foreach (var grupo in agrupaPorSolteria)
+//usando la sintaxis de queries
+var agrupaPorSolteria_2 = from p in personas
+                                group p by p.Soltero into grupo //esta linea indica gue agrupe p (personas) por solteria dentro de grupo
+                                select grupo;
+
+foreach (var grupo in agrupaPorSolteria_2)
 {
     Console.WriteLine($"Grupo de las personas donde Solteros = {grupo.Key} (Total: {grupo.Count()})");
     foreach (var persona in grupo)
