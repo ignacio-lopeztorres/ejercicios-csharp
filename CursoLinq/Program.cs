@@ -2,14 +2,22 @@
 
 var numeros = Enumerable.Range(1, 100);
 
-//obtiene los 10 primero numeros
-var primeros10Numero = numeros.Take(10).ToList();
-
-//uso de Skip, el cuan indica que se salte la cantidad de elementos y se usa en conbinacion de take, por ejemplo
-var segundoLoteDe10 = numeros.Skip(10).Take(10).ToList();
-
-//obtiene los 10 ultimos numeros
-var ultimos10Numeros = numeros.TakeLast(10).ToList();
-var penultimoLote = numeros.SkipLast(10).TakeLast(10).ToList();
+for (int i = 1; i <= 10; i++) {
+    Console.WriteLine($"Pagina: {i}");
+    var paginado = numeros.paginar(i,10);
+    foreach (var item in paginado)
+    {
+        Console.WriteLine(item);
+    }
+}
 
 var a = 1;
+
+
+public static class IEnumerableExtensions
+{
+    public static IEnumerable<T> paginar<T>(this IEnumerable<T> colecion, int paginas, int tamañoLotes)
+    {
+        return colecion.Skip((paginas - 1) * tamañoLotes).Take(tamañoLotes).ToList();
+    }
+}
