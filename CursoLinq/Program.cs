@@ -1,23 +1,13 @@
 ﻿using CursoLinq;
 
-var numeros = Enumerable.Range(1, 100);
+int[] numeros = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 3, 2, 1 };
 
-for (int i = 1; i <= 10; i++) {
-    Console.WriteLine($"Pagina: {i}");
-    var paginado = numeros.paginar(i,10);
-    foreach (var item in paginado)
-    {
-        Console.WriteLine(item);
-    }
-}
+//Toma los elementos mientras el predicado sea true.
+//A partir de que el predicado sea falso, deja de tomar elementos.
+var resultadoTakeWhile = numeros.TakeWhile(x => x < 5).ToList();
+
+//saltarse los elementos mientras que el presicado sea true
+//A partir de que el predicado sea falso, toma todo lo que sigue
+var resultadoSkipWhile = numeros.SkipWhile(x => x < 5).ToList();
 
 var a = 1;
-
-
-public static class IEnumerableExtensions
-{
-    public static IEnumerable<T> paginar<T>(this IEnumerable<T> colecion, int paginas, int tamañoLotes)
-    {
-        return colecion.Skip((paginas - 1) * tamañoLotes).Take(tamañoLotes).ToList();
-    }
-}
