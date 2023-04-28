@@ -14,5 +14,12 @@ var numerosSiRepeticiones = numeros.Distinct().ToArray();
 
 var personasSinNombreRepetidos = personas.DistinctBy(p => p.Name );
 
+//sintaxis de queries
+var numerosSinRepetiones_2 = from n in numeros.Distinct() 
+                             select n;
+
+var personasSinNombresRepetidos_2 = from p in personas.DistinctBy(p => p.Name)
+                                    select p;
+
 var a = 1;
 
