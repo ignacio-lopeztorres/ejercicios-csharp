@@ -11,18 +11,14 @@ var personas = new List<Persona>() {
 };
 
 //agrupar personas solteras y no solteras
-var agrupaPorSolteria = personas.GroupBy(p => p.Soltero);
+var agrupaPorRangoDeEdad = personas.GroupBy(p => p.Edad / 5);
 
-//usando la sintaxis de queries
-var agrupaPorSolteria_2 = from p in personas
-                                group p by p.Soltero into grupo //esta linea indica gue agrupe p (personas) por solteria dentro de grupo
-                                select grupo;
 
-foreach (var grupo in agrupaPorSolteria_2)
+foreach (var grupo in agrupaPorRangoDeEdad)
 {
-    Console.WriteLine($"Grupo de las personas donde Solteros = {grupo.Key} (Total: {grupo.Count()})");
+    Console.WriteLine($"Grupo de las personas en el rango de edad {grupo.Key * 5} (Total: {grupo.Key * 5 + 5 - 1})");
     foreach (var persona in grupo)
     {
-        Console.WriteLine($"- {persona.Nombre}");
+        Console.WriteLine($"- {persona.Nombre} (Edad: {persona.Edad})");
     }
 }
