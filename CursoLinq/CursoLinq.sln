@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoLinq", "CursoLinq.csproj", "{E1C73A4E-FDB6-4F47-A970-2EB19BF246FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoLinq", "CursoLinq.csproj", "{E1C73A4E-FDB6-4F47-A970-2EB19BF246FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Join", "..\Join\Join.csproj", "{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E1C73A4E-FDB6-4F47-A970-2EB19BF246FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1C73A4E-FDB6-4F47-A970-2EB19BF246FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1C73A4E-FDB6-4F47-A970-2EB19BF246FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD10F64A-8F90-44BE-8EB9-3BAB993091FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
