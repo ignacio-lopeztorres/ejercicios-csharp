@@ -1,13 +1,23 @@
 ﻿using CursoLinq;
 
-int[] numeros = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 3, 2, 1 };
+var personas = new List<Persona>() {
+    new Persona { Nombre = "Eduardo", Edad = 19, Soltero = true },
+    new Persona { Nombre = "Nidia", Edad = 25, Soltero = true },
+    new Persona { Nombre = "Alejandro", Edad = 30, Soltero = true },
+    new Persona { Nombre = "Valentina", Edad = 17, Soltero = false },
+    new Persona { Nombre = "Roberto", Edad = 18, Soltero = true },
+    new Persona { Nombre = "Eugenia", Edad = 27, Soltero = false },
+    new Persona { Nombre = "Esmerlin", Edad = 45, Soltero = false },
+};
 
-//Toma los elementos mientras el predicado sea true.
-//A partir de que el predicado sea falso, deja de tomar elementos.
-var resultadoTakeWhile = numeros.TakeWhile(x => x < 5).ToList();
+//agrupar personas solteras y no solteras
+var agrupaPorSolteria = personas.GroupBy(p => p.Soltero);
 
-//saltarse los elementos mientras que el presicado sea true
-//A partir de que el predicado sea falso, toma todo lo que sigue
-var resultadoSkipWhile = numeros.SkipWhile(x => x < 5).ToList();
-
-var a = 1;
+foreach (var grupo in agrupaPorSolteria)
+{
+    Console.WriteLine($"Grupo de las personas donde Solteros = {grupo.Key} (Total: {grupo.Count()})");
+    foreach (var persona in grupo)
+    {
+        Console.WriteLine($"- {persona.Nombre}");
+    }
+}
