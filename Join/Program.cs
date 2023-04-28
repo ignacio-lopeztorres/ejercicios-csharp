@@ -28,8 +28,17 @@ var personasYEmpresas = personas.Join(empresas, p => p.EmpresaId, e => e.Id, (pe
     Empresa = empresa
 });
 
+//sintaxis de queries 
 
-foreach (var item in personasYEmpresas)
+var personasYEmpresas_2 = from p in personas
+                          join e in empresas on p.EmpresaId equals e.Id
+                          select new { 
+                            Persona = p,
+                            Empresa = e
+                          };
+
+
+foreach (var item in personasYEmpresas_2)
 {
     Console.WriteLine($"{item.Persona.Name} trabaja en {item.Empresa.Name}");
     
