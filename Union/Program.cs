@@ -17,3 +17,9 @@ int[] numeroB = { 1, 2, 15 };
 
 //une las dos coleciones de numeros donde cada elemento que se repite ya no ingresa a la nueva coleccion
 var unionNumero = numerosA.Union(numeroB);
+
+//union de dos colecciones de objetos usando unionBy
+
+var unionPersonas = personasA.UnionBy(personasB, p => p.Name);
+
+var a = 1; //breackpoint
